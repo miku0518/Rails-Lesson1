@@ -1,0 +1,27 @@
+<%= link_to "一覧に戻る", schedules_path %>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @schedule.title %>
+  <%= link_to "編集", edit_schedule_path(@schedule) %>
+</p>
+
+<p>
+  <strong>開始日:</strong>
+  <%= @schedule.start_date.to_fs(:jp_date) %>
+</p>
+
+<p>
+  <strong>終了日:</strong>
+  <%= @schedule.end_date.to_fs(:jp_date) %>
+</p>
+
+<p>
+  <strong>終日:</strong>
+  <%= @schedule.allday ? "○" : "" %>
+</p>
+
+<p>
+  <strong>スケジュールメモ:</strong>
+  <%= @schedule.memo %>
+</p>

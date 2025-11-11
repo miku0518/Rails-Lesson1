@@ -1,0 +1,38 @@
+<h1>予定の新規追加</h1>
+
+<% if flash[:alert] %>
+  <p><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with model: @schedule, local: true do |f| %>
+   <div>
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :start_date, "開始日" %><br>
+    <%= f.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= f.label :end_date, "終了日" %><br>
+    <%= f.date_field :end_date %>
+  </div>
+
+  <div>
+    <%= f.check_box :allday %>
+    <%= f.label :allday, "終日の場合はチェックを入れます" %>
+  </div>
+
+  <div>
+    <%= f.label :memo, "スケジュールメモ" %><br>
+    <%= f.text_area :memo %>
+  </div>
+
+  <div>
+    <%= f.submit "保存" %>
+  </div>
+<% end %>
+
+<%= link_to "キャンセル", schedules_path %>
